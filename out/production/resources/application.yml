@@ -1,0 +1,29 @@
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+  server:
+    enableSelfPreservation: false
+
+---
+
+spring:
+  profiles: container
+
+server:
+  port: ${EUREKA_PORT}
+
+eureka:
+  instance:
+    hostname: ${EUREKA_HOSTNAME}
+    prefer-ip-address: true
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+  server:
+    enableSelfPreservation: false
